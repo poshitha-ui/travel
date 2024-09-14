@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Travels</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/banner.css" />
+    <script src="./assets/js/banner.js"></script>
+    <style>
+        .zoom-slider {
+            position: relative;
+            width: 100%;
+            min-height: 300px;
+            overflow: hidden;
+            max-height: 550px;
+        }
+
+        .zoom-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            /* transition: opacity 1s ease-in-out, transform 5s ease; */
+            transform: scale(1.2, 1.2);
+            transition: transform 8000ms ease-out, opacity 800ms;
+            background: transparent none no-repeat 50% 50%;
+        }
+
+        .zoom-slide.show {
+            /* opacity: 1;
+            transform: scale(1.1); */
+            /* Zoom effect */
+            transition: transform 8000ms ease-out, opacity 800ms;
+            opacity: 1;
+            transform: scale(1, 1);
+            z-index: 2;
+        }
+
+        .zoom-overlay {
+
+            position: relative;
+            z-index: 2;
+            margin: 115px auto;
+            padding: 40px;
+            max-width: 960px;
+            color: #fff;
+            text-align: center;
+            font-size: 1.5em;
+
+        }
+
+        .zoom-overlay h1 {
+            font-size: 2.5em;
+            margin: 0 0 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="desktop">
+            <nav class="navbar navbar-expand-lg custom-fixed-header">
+                <div class="container">
+                    <a class="navbar-brand" href="./index.html">
+                        <img class="img-fluid" src="./assets/images/HT-Logo-Angle-Orange.webp" alt="" srcset=""
+                            style="width: 120px;">
+                    </a>
+                    <div class="collapse navbar-collapse">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item dropdown dropdown-hover has-megamenu">
+                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Destination </a>
+                                    <div class="dropdown-menu megamenu" role="menu">
+                                        <div class="desktop-memu-overlay-bg">
+                                            <div class="desktop-menu-pane">
+                                                <div class="row g-3">
+                                                    <div class="col-12 col-md-4 ">
+                                                        <div class="col-megamenu">
+                                                            <h6 class="title">Australia</h6>
+                                                            <div class="row">
+                                                                <div class="col-md">
+                                                                    <ul class="list-unstyled">
+                                                                        <li><a href="#">View All</a></li>
+                                                                        <li><a href="#">East Coast</a></li>
+                                                                        <li><a href="#">Cairns & Surrounds</a></li>
+                                                                        <li><a href="#">The Whitsundays</a></li>
+                                                                        <li><a href="#">K'gari (Fraser) Island</a></li>
+                                                                        <li><a href="#">Noosa</a></li>
+                                                                        <li><a href="#">Sydney</a></li>
+                                                                        <li><a href="#">Melbourne</a></li>
+                                                                        <li><a href="#">Tasmania</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="col-md">
+                                                                    <ul class="list-unstyled">
+                                                                        <li><a href="#">Byron Bay</a></li>
+                                                                        <li><a href="#">West Coast</a></li>
+                                                                        <li><a href="#">Uluru & Outback</a></li>
+                                                                        <li><a href="#">Darwin & Top End</a></li>
+                                                                        <li><a href="">Magnetic Island</a></li>
+                                                                        <li><a href="">Townsville</a></li>
+                                                                        <li><a href="">Brisbane</a></li>
+                                                                        <li><a href="">Perth</a></li>
+                                                                        <li><a href="">South Australia</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                    
+                                                        </div> <!-- col-megamenu.// -->
+                                                    </div><!-- end col-3 -->
+                                                    <div class="col-12 col-md">
+                                                        <div class="col-megamenu">
+                                                            <h6 class="title">New Zealand </h6>
+                                                            <ul class="list-unstyled">
+                                                                <li><a href="#">View All</a></li>
+                                                                <li><a href="#">Northa Island</a></li>
+                                                                <li><a href="#">South Island</a></li>
+                                                                <li><a href="#">Queenstown </a></li>
+                                                                <li><a href="#">Milford Sound & Fiordland</a></li>
+                                                            </ul>
+                                                            <h6 class="title mt-2">Europe </h6>
+                                                            <ul class="list-unstyled">
+                                                                <li><a href="#">View All</a></li>
+                                                            </ul>
+                                                        </div> <!-- col-megamenu.// -->
+                                                    </div><!-- end col-3 -->
+                                                    <div class="col-12 col-md">
+                                                        <div class="col-megamenu">
+                                                            <h6 class="title">south East Asia</h6>
+                                                            <ul class="list-unstyled">
+                                                                <li><a href="#">View All</a></li>
+                                                                <li><a href="#">Thailand </a></li>
+                                                                <li><a href="#">Vietnam </a></li>
+                                                                <li><a href="#">Philipines </a></li>
+                                                                <li><a href="#">Combodia </a></li>
+                                                            </ul>
+                                                            <h6 class="title mt-2">Indonesia</h6>
+                                                            <ul class="list-unstyled">
+                                                                <li><a href="#">Bali & Lombok</a></li>
+                                                                <li><a href="#">Sumatra</a></li>
+                                                                <li><a href="#">Komodo Islands</a></li>
+                                                            </ul>
+                                                        </div> <!-- col-megamenu.// -->
+                                                    </div>
+                                                    <div class="col-12 col-md">
+                                                        <div class="col-megamenu">
+                                                            <h6 class="title">Fiji</h6>
+                                                            <ul class="list-unstyled">
+                                                                <li><a href="#">View All</a></li>
+                                                            </ul>
+                                                            <h6 class="title mt-2">East Asia</h6>
+                                                            <ul class="list-unstyled">
+                                                                <li><a href="#">Japan</a></li>
+                                                                <li><a href="#">South Korea</a></li>
+                                                                <li><a href="#">China</a></li>
+                                                            </ul>
+                                                            <h6 class="title mt-2">India & Sri Lanka</h6>
+                                                            <ul class="list-unstyled">
+                                                                <li><a href="#">India</a></li>
+                                                                <li><a href="#">Sri Lanka</a></li>
+                                                            </ul>
+                                                        </div> <!-- col-megamenu.// -->
+                                                    </div><!-- end col-3 -->
+                                                </div><!-- end row -->
+                                            </div>
+                                        </div> 
+                                    </div><!-- dropdown-mega-menu.// -->
+                                </li>
+                                <!-- end Menu 1 // -->
+                                <li class="nav-item dropdown has-megamenu">
+                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                                        aria-expanded="false">Experiences</a>
+                                    <div class="dropdown-menu megamenu" role="menu">
+                                        <div class="desktop-memu-overlay-bg">
+                                            <div class="desktop-menu-pane">
+                                                <div class="row g-3">
+                                                    <div class="col-12 col-md">
+                                                        <div class="col-megamenu">
+                                                            <h6 class="title">Australia</h6>
+                                                            <div class="row">
+                                                                <div class="col-md">
+                                                                    <ul class="list-unstyled">
+                                                                        <li><a href="#">View All</a></li>
+                                                                        <li><a href="">East Coast Packages</a></li>
+                                                                        <li><a href="">Campervans & Car Rentals</a></li>
+                                                                        <li><a href="">Greyhound Bus Passes</a></li>
+                                                                        <li><a href="">Fraser Island 4×4 Tours</a></li>
+                                                                        <li><a href="#">Whitsundays Tours</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="col-md">
+                                                                    <ul class="list-unstyled">
+                                                                        <li><a href="">Great Barrier Reef</a></li>
+                                                                        <li><a href="">Wildlife Experiences</a></li>
+                                                                        <li><a href="">Skydiving</a></li>
+                                                                        <li><a href="">Scuba Diving</a></li>
+                                                                        <li><a href="#">Jet Skiing</a></li>
+                                                                        <li><a href="#">Learn to Surf</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="col-md">
+                                                                    <ul class="list-unstyled">
+                                                                        <li><a href="">Bungy Jumping</a></li>
+                                                                        <li><a href="">Uluru & Outback Tours</a></li>
+                                                                        <li><a href="">Food & Wine Tours</a></li>
+                                                                        <li><a href="#">East Coast Group Tours</a></li>
+                                                                        <li><a href="#">Cultural Experiences</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md">
+                                                        <div class="col-megamenu">
+                                                            <h6 class="title">New Zealand</h6>
+                                                            <div class="row">
+                                                                <div class="col-md">
+                                                                    <ul class="list-unstyled">
+                                                                        <li><a href="">View All</a></li>
+                                                                        <li><a href="">Snow Sports</a></li>
+                                                                        <li><a href="">Milford Sound & Fiordland</a></li>
+                                                                        <li><a href="">Scenic Flights</a></li>
+                                                                        <li><a href="">Campervan & Car Hire</a></li>
+                                                                        <li><a href="">Bungy & Swings</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="col-md">
+                                                                    <ul class="list-unstyled">
+                                                                        <li><a href="">Jet Boat Tours</a></li>
+                                                                        <li><a href="">Adventure Combos</a></li>
+                                                                        <li><a href="">Skydiving</a></li>
+                                                                        <li><a href="">Scenic Day Tours & National Parks</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                    
+                                                    </div>
+                                                </div>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- end Menu 2 // -->
+                                <li class="nav-item dropdown has-megamenu">
+                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                                        aria-expanded="false">Packages</a>
+                                    <div class="dropdown-menu megamenu" role="menu">
+                                        <div class="desktop-memu-overlay-bg">
+                                            <div class="desktop-menu-pane">
+                                                <div class="row g-3">
+                                                    <div class="col-12 col-md">
+                                                        <div class="col-megamenu">
+                                                            <h6 class="title">Australia Package Deals</h6>
+                                                            <ul class="list-unstyled">
+                                                                <li><a href="">View All</a></li>
+                                                                <li><a href="">21 Day East Coast Package</a></li>
+                                                                <li><a href="">32 Day East Coast Package</a></li>
+                                                                <li><a href="">35 Day Cairns to Melbourne Package</a></li>
+                                                                <li><a href="">14 Day East Coast Express Package</a></li>
+                                                                <li><a href="">17 Day Sydney to Cairns Package</a></li>
+                                                                <li><a href="">Fraser Islands & Whitsundays Combo</a></li>
+                                                                <li><a href="">Australia Package Builder</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md">
+                                                        <div class="col-megamenu">
+                                                            <h6 class="title">Australia Group Tours</h6>
+                                                            <ul class="list-unstyled">
+                                                                <li><a href="">View All</a></li>
+                                                                <li><a href="">Travel Buddies 32 Day Sydney to Cairns Group Tour</a></li>
+                                                                <li><a href="">Travel Buddies 32 Day Cairns to Sydney Group Tour</a></li>
+                                                                <li><a href="">10 Day Adelaide to Perth Adventure</a></li>
+                                                                <li><a href="">10 Day Broome to Darwin Adventure</a></li>
+                                                                <li><a href="">Ultimate 10 Day Tasmania Tour</a></li>
+                                                                <li><a href="">6 Day Perth to Exmouth Coral coaster</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md">
+                                                        <div class="col-megamenu">
+                                                            <h6 class="title">New Zealand Package Deals</h6>
+                                                            <ul class="list-unstyled">
+                                                                <li><a href="">View All</a></li>
+                                                                <li><a href="">Queenstown Combos</a></li>
+                                                                <li><a href="">Ski & Snowboard Packages</a></li>
+                                                                <li><a href="">Build Your Own Package</a></li>
+                                                            </ul>
+                                                            <h6 class="title mt-2">Arrival Packages</h6>
+                                                            <ul class="list-unstyled">
+                                                                <li><a href="">View All</a></li>
+                                                                <li><a href="">Sydney</a></li>
+                                                                <li><a href="">Brisbane</a></li>
+                                                                <li><a href="">Cairns</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md">
+                                                        <div class="col-megamenu">
+                                                            <h6 class="title">Asia Package Deals & Group Tours</h6>
+                                                            <ul class="list-unstyled">
+                                                                <li><a href="">View All</a></li>
+                                                                <li><a href="">Thailand</a></li>
+                                                                <li><a href="">Vietnam</a></li>
+                                                                <li><a href="">Indonesia</a></li>
+                                                                <li><a href="">Phillipines</a></li>
+                                                                <li><a href="">Sri Lanka</a></li>
+                                                                <li><a href="">Japan</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md">
+                                                        <div class="col-megamenu">
+                                                            <h6 class="title">Fiji Package Deals</h6>
+                                                            <ul class="list-unstyled">
+                                                                <li><a href="#">View All</a></li>
+                                                                <li><a href="#">7 Day Coconut Cruiser</a></li>
+                                                                <li><a href="#">8 Day Yasawa Island Wanderer </a></li>
+                                                                <li><a href="#">12 Day Fiji Explorer Package</a></li>
+                                                                <li><a href="#">5 Day Island Adventurer Package</a></li>
+                                                                <li><a href="#">Bula Island Hopper Pass</a></li>
+                                                                <li><a href="#">Fiji Custom Package Builder</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- end Menu 3 // -->
+                                <li class="nav-item dropdown has-megamenu">
+                                    <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown"> Build Your Own </a>
+                                        <div class="dropdown-menu megamenu" role="menu">
+                                            <div class="desktop-memu-overlay-bg">
+                                                <div class="desktop-menu-pane desktop-menu-pane-xs">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <ul class="list-unstyled">
+                                                                <li><a class="dropdown-item" href="#"> Build an East Coast Package</a></li>
+                                                                <li><a class="dropdown-item" href="#"> Build an Australia Package</a></li>
+                                                                <li><a class="dropdown-item" href="#"> Build a New Zealand Package</a></li>
+                                                                <li><a class="dropdown-item" href="#"> Build a Fiji Package</a></li>
+                                                                <li><a class="dropdown-item" href="#"> Build an Indonesia Package</a></li>
+                                                                <li><a class="dropdown-item" href="#"> Build a Thailand Package</a></li>
+                                                                <li><a class="dropdown-item" href="#"> Build a Vietnam Package</a></li>
+                                                                <li><a class="dropdown-item" href="#"> Build a Philippines Package </a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="desktop-memu-overlay-bg">
+                                            <div class="desktop-menu-pane-xs">
+                                                <ul class="dropdown-menu dropdown-menu-end">
+                                                   
+                                                </ul>
+                                            </div>
+                                        </div> -->
+                                </li>
+                                <!-- end Menu 4 // -->
+                                <li class="nav-item"><a class="nav-link" href="#"> Campervans </a></li>
+                                <!-- end Menu 5 // -->
+                                <li class="nav-item dropdown has-megamenu">
+                                    <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown"> Info </a>
+                                    <div class="dropdown-menu megamenu" role="menu">
+                                        <div class="desktop-memu-overlay-bg">
+                                            <div class="desktop-menu-pane desktop-menu-pane-left-auto">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <ul class="list-unstyled">
+                                                            <li><a class="dropdown-item" href="#"> Contact Us</a></li>
+                                                            <li><a class="dropdown-item" href="#"> Our Stories</a></li>
+                                                            <li><a class="dropdown-item" href="#"> Work For Us </a></li>
+                                                            <li><a class="dropdown-item" href="#"> Travel Blog</a></li>
+                                                            <li><a class="dropdown-item" href="#"> Collabrate</a></li>
+                                                            <li><a class="dropdown-item" href="#"> Work in Australia</a></li>
+                                                            <li><a class="dropdown-item" href="#"> FAQ's</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- end Menu 6 // -->
+                            </ul>
+                            <div class="d-flex serach-nav" >
+                            <div class="input-group">
+                                <div class="input-group-text">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
+                                    </svg>
+                                </div>
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            </div>
+                            <i class="fa fa-phone fa-fw"></i>
+                            <i class="fa fa-envelope fa-fw"></i>
+                            </div>
+                    
+                    </div>
+                </div>
+            </nav>
+        </div>
+        
+        <div class="mobile">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img class="img-fluid" src="./assets/images/HT-Logo-Angle-Orange.webp" alt="" srcset=""
+                                    style="width: 100px;">
+                    </a>
+                    <button class="navbar-toggler" id="navbarToggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarContent">
+                        <a class="navbar-brand" href="#">
+                            <img class="img-fluid" src="./assets/images/HT-Logo-Angle-Orange.webp" alt="" srcset=""
+                                    style="width: 130px; margin: 10px 0;">
+                        </a>
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="mainDropdown" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false"> Destination </a>
+                                <ul class="dropdown-menu" aria-labelledby="mainDropdown">
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"> Australia</a>
+                                        <ul class="dropdown-menu dropdown-submenu" >
+                                            <li><a class="dropdown-item" href="#">View All</a></li>
+                                            <li><a class="dropdown-item" href="#">East Coast</a></li>
+                                            <li><a class="dropdown-item" href="#">Cairns & Surrounds</a></li>
+                                            <li><a class="dropdown-item" href="#">The Whitsundays</a></li>
+                                            <li><a class="dropdown-item" href="#">K'gari (Fraser) Island</a></li>
+                                            <li><a class="dropdown-item" href="#">Noosa</a></li>
+                                            <li><a class="dropdown-item" href="#">Sydney</a></li>
+                                            <li><a class="dropdown-item" href="#">Melbourne</a></li>
+                                            <li><a class="dropdown-item" href="#">Tasmania</a></li>
+                                            <li><a class="dropdown-item" href="#">Byron Bay</a></li>
+                                            <li><a class="dropdown-item" href="#">West Coast</a></li>
+                                            <li><a class="dropdown-item" href="#">Uluru & Outback</a></li>
+                                            <li><a class="dropdown-item" href="#">Darwin & Top End</a></li>
+                                            <li><a class="dropdown-item" href="">Magnetic Island</a></li>
+                                            <li><a class="dropdown-item" href="">Townsville</a></li>
+                                            <li><a class="dropdown-item" href="">Brisbane</a></li>
+                                            <li><a class="dropdown-item" href="">Perth</a></li>
+                                            <li><a class="dropdown-item" href="">South Australia</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"> New Zealand</a>
+                                        <ul class="dropdown-menu dropdown-submenu" >
+                                            <li><a class="dropdown-item" href="#">View All</a></li>
+                                            <li><a class="dropdown-item" href="#">Northa Island</a></li>
+                                            <li><a class="dropdown-item" href="#">South Island</a></li>
+                                            <li><a class="dropdown-item" href="#">Queenstown </a></li>
+                                            <li><a class="dropdown-item" href="#">Milford Sound & Fiordland</a></li>
+                                        </ul>    
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"> Europe </a>
+                                        <ul class="dropdown-menu dropdown-submenu" >
+                                            <li><a class="dropdown-item" href="#">View All</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"> south East Asia</a>
+                                        <ul class="dropdown-menu dropdown-submenu" >
+                                            <li><a class="dropdown-item" href="#">View All</a></li>
+                                            <li><a class="dropdown-item" href="#">Thailand </a></li>
+                                            <li><a class="dropdown-item" href="#">Vietnam </a></li>
+                                            <li><a class="dropdown-item" href="#">Philipines </a></li>
+                                            <li><a class="dropdown-item" href="#">Combodia </a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"> Indonesia</a>
+                                        <ul class="dropdown-menu dropdown-submenu" >
+                                            <li><a class="dropdown-item" href="#">Bali & Lombok</a></li>
+                                            <li><a class="dropdown-item" href="#">Sumatra</a></li>
+                                            <li><a class="dropdown-item" href="#">Komodo Islands</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"> Fiji</a>
+                                        <ul class="dropdown-menu dropdown-submenu" >
+                                            <li><a class="dropdown-item" href="#">View All</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"> East Asia</a>
+                                        <ul class="dropdown-menu dropdown-submenu" >
+                                            <li><a class="dropdown-item" href="#">Japan</a></li>
+                                            <li><a class="dropdown-item" href="#">South Korea</a></li>
+                                            <li><a class="dropdown-item" href="#">China</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"> India & Sri Lanka</a>
+                                        <ul class="dropdown-menu dropdown-submenu" >
+                                            <li><a class="dropdown-item" href="#">India </a></li>
+                                            <li><a class="dropdown-item" href="#">Sri Lanka </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- End Menu 1 -->
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="mainDropdown" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false"> Experiences </a>
+                                <ul class="dropdown-menu" aria-labelledby="mainDropdown">
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"> Australia</a>
+                                        <ul class="dropdown-menu dropdown-submenu" >
+                                            <li><a class="dropdown-item" href="#">View All</a></li>
+                                            <li><a class="dropdown-item" href="#">East Coast Packages</a></li>
+                                            <li><a class="dropdown-item" href="#">Campervans & Car Rentals</a></li>
+                                            <li><a class="dropdown-item" href="#">Greyhound Bus Passes</a></li>
+                                            <li><a class="dropdown-item" href="#">Fraser Island 4×4 Tours</a></li>
+                                            <li><a class="dropdown-item" href="#">Whitsundays Tours</a></li>
+                                            <li><a class="dropdown-item" href="#">Great Barrier Reef</a></li>
+                                            <li><a class="dropdown-item" href="#">Wildlife Experiences</a></li>
+                                            <li><a class="dropdown-item" href="#">Skydiving</a></li>
+                                            <li><a class="dropdown-item" href="#">Scuba Diving</a></li>
+                                            <li><a class="dropdown-item" href="#">Jet Skiing</a></li>
+                                            <li><a class="dropdown-item" href="#">Learn to Surf</a></li>
+                                            <li><a class="dropdown-item" href="#">Bungy Jumping</a></li>
+                                            <li><a class="dropdown-item" href="#">Uluru & Outback Tours</a></li>
+                                            <li><a class="dropdown-item" href="#">Food & Wine Tours</a></li>
+                                            <li><a class="dropdown-item" href="#">East Coast Group Tours</a></li>
+                                            <li><a class="dropdown-item" href="#">Cultural Experiences</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"> New Zealand</a>
+                                        <ul class="dropdown-menu dropdown-submenu" >
+                                            <li><a class="dropdown-item" href="#">View All</a></li>
+                                            <li><a class="dropdown-item" href="#">Snow Sports</a></li>
+                                            <li><a class="dropdown-item" href="#">Milford Sound & Fiordland</a></li>
+                                            <li><a class="dropdown-item" href="#">Scenic Flights</a></li>
+                                            <li><a class="dropdown-item" href="#">Campervan & Car Hire</a></li>
+                                            <li><a class="dropdown-item" href="#">Bungy & Swings</a></li>
+                                            <li><a class="dropdown-item" href="#">Jet Boat Tours</a></li>
+                                            <li><a class="dropdown-item" href="#">Adventure Combos</a></li>
+                                            <li><a class="dropdown-item" href="#">Skydiving</a></li>
+                                            <li><a class="dropdown-item" href="#">Scenic Day Tours & National Parks</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>        
+                        </ul>
+                        <!-- End Menu 2-->
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="mainDropdown" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false"> Packages </a>
+                                <ul class="dropdown-menu" aria-labelledby="mainDropdown">
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"> Australia Package Deals</a>
+                                        <ul class="dropdown-menu dropdown-submenu" >
+                                            <li><a class="dropdown-item" href="#">View All</a></li>
+                                            <li><a class="dropdown-item" href="#">21 Day East Coast Package</a></li>
+                                            <li><a class="dropdown-item" href="#">32 Day East Coast Package</a></li>
+                                            <li><a class="dropdown-item" href="#">35 Day Cairns to Melbourne Package</a></li>
+                                            <li><a class="dropdown-item" href="#">14 Day East Coast Express Package</a></li>
+                                            <li><a class="dropdown-item" href="#">17 Day Sydney to Cairns Package</a></li>
+                                            <li><a class="dropdown-item" href="#">Fraser Islands & Whitsundays Combo</a></li>
+                                            <li><a class="dropdown-item" href="#">Australia Package Builder</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"> Australia Group Tours</a>
+                                        <ul class="dropdown-menu dropdown-submenu" >
+                                            <li><a class="dropdown-item" href="#">View All</a></li>
+                                            <li><a class="dropdown-item" href="#">Travel Buddies 32 Day Sydney to Cairns Group Tour</a></li>
+                                            <li><a class="dropdown-item" href="#">Travel Buddies 32 Day Cairns to Sydney Group Tour</a></li>
+                                            <li><a class="dropdown-item" href="#">10 Day Adelaide to Perth Adventure</a></li>
+                                            <li><a class="dropdown-item" href="#">10 Day Broome to Darwin Adventure</a></li>
+                                            <li><a class="dropdown-item" href="#">Ultimate 10 Day Tasmania Tour</a></li>
+                                            <li><a class="dropdown-item" href="#">6 Day Perth to Exmouth Coral coaster</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"> New Zealand Package Deals</a>
+                                        <ul class="dropdown-menu dropdown-submenu" >
+                                            <li><a class="dropdown-item" href="#">View All</a></li>
+                                            <li><a class="dropdown-item" href="#">Queenstown Combos</a></li>
+                                            <li><a class="dropdown-item" href="#">Ski & Snowboard Packages</a></li>
+                                            <li><a class="dropdown-item" href="#">Build Your Own Package</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"> Arrival Packages</a>
+                                        <ul class="dropdown-menu dropdown-submenu" >
+                                            <li><a class="dropdown-item" href="#">View All</a></li>
+                                            <li><a class="dropdown-item" href="#">Sydney</a></li>
+                                            <li><a class="dropdown-item" href="#">Brisbane</a></li>
+                                            <li><a class="dropdown-item" href="#">Cairns</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"> Asia Package Deals & Group Tours</a>
+                                        <ul class="dropdown-menu dropdown-submenu" >
+                                            <li><a class="dropdown-item" href="#">View All</a></li>
+                                            <li><a class="dropdown-item" href="#">Thailand</a></li>
+                                            <li><a class="dropdown-item" href="#">Vietnam</a></li>
+                                            <li><a class="dropdown-item" href="#">Indonesia</a></li>
+                                            <li><a class="dropdown-item" href="#">Phillipines</a></li>
+                                            <li><a class="dropdown-item" href="#">Sri Lanka</a></li>
+                                            <li><a class="dropdown-item" href="#">Japan</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"> Fiji Package Deals</a>
+                                        <ul class="dropdown-menu dropdown-submenu" >
+                                            <li><a class="dropdown-item" href="#">View All</a></li>
+                                            <li><a class="dropdown-item" href="#">View All</a></li>
+                                            <li><a class="dropdown-item" href="#">7 Day Coconut Cruiser</a></li>
+                                            <li><a class="dropdown-item" href="#">8 Day Yasawa Island Wanderer </a></li>
+                                            <li><a class="dropdown-item" href="#">12 Day Fiji Explorer Package</a></li>
+                                            <li><a class="dropdown-item" href="#">5 Day Island Adventurer Package</a></li>
+                                            <li><a class="dropdown-item" href="#">Bula Island Hopper Pass</a></li>
+                                            <li><a class="dropdown-item" href="#">Fiji Custom Package Builder</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>        
+                        </ul>
+                        <!-- End menu 3 -->
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="mainDropdown" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false"> Build your own </a>
+                                <ul class="dropdown-menu" aria-labelledby="mainDropdown">
+                                    <li><a class="dropdown-item" href="#"> Build an East Coast Package</a></li>
+                                    <li><a class="dropdown-item" href="#"> Build an Australia Package</a></li>
+                                    <li><a class="dropdown-item" href="#"> Build a New Zealand Package</a></li>
+                                    <li><a class="dropdown-item" href="#"> Build a Fiji Package</a></li>
+                                    <li><a class="dropdown-item" href="#"> Build an Indonesia Package</a></li>
+                                    <li><a class="dropdown-item" href="#"> Build a Thailand Package</a></li>
+                                    <li><a class="dropdown-item" href="#"> Build a Vietnam Package</a></li>
+                                    <li><a class="dropdown-item" href="#"> Build a Philippines Package </a></li>
+                                </ul>
+                            </li>        
+                        </ul>
+                        <!-- End Menu 4 -->
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#">Campervans</a>
+                            </li>
+                        </ul>  
+                        <!-- End Menu 5 -->  
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="mainDropdown" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false"> Info </a>
+                                <ul class="dropdown-menu" aria-labelledby="mainDropdown">
+                                    <li><a class="dropdown-item" href="#"> Our Stories</a></li>
+                                    <li><a class="dropdown-item" href="#"> Work For Us </a></li>
+                                    <li><a class="dropdown-item" href="#"> Travel Blog</a></li>
+                                    <li><a class="dropdown-item" href="#"> Collabrate</a></li>
+                                    <li><a class="dropdown-item" href="#"> Work in Australia</a></li>
+                                    <li><a class="dropdown-item" href="#"> FAQ's</a></li>
+                                </ul>
+                            </li>        
+                        </ul>
+                        <!-- End Menu 6-->
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- ** Banner Block ** -->
+    <section class="banner">
+        <div class="zoom-slider">
+            <div class="zoom-slide" style="background-image: url('./assets/images/banner1.jpg');"></div>
+            <div class="zoom-slide" style="background-image: url('./assets/images/banner2.webp');"></div>
+            <div class="zoom-slide" style="background-image: url('./assets/images/banner3.jpeg');"></div>
+            <div class="zoom-overlay">
+                <h1><span>Discover the World with </span> <span>Happy Travels</span></h1>
+                <p>Explore Australia, New Zealand, and Beyond with Customized Travel Packages at Unbeatable Prices.</p>
+                <button class="btn bg-custom-primary-dark text-white" style="font-weight: 500;">
+                    <span> Explore Now &nbsp; </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- <div id="demo-1" data-zs-src='["https://github.com/poshitha-ui/happy-travel/blob/master/assets/images/banner1.jpg", "https://github.com/poshitha-ui/happy-travel/blob/master/assets/images/banner2.webp", "https://github.com/poshitha-ui/happy-travel/blob/master/assets/images/banner3.jpeg"]' data-zs-overlay="dots">
+            <div class="demo-inner-content">
+                <h1><span>Discover the World with </span> <span>Happy Travels</span></h1>
+                <p>Explore Australia, New Zealand, and Beyond with Customized Travel Packages at Unbeatable Prices.</p>
+                <button class="btn bg-custom-primary-dark text-white" style="font-weight: 500;">
+                    <span> Explore Now &nbsp; </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                    </svg>
+                </button>
+            </div>
+        </div> -->
+    </section>
+    <!-- ** Main Search Block ** -->
+    <div class="custom-space-bw-blocks">
+        <div class="container main-search">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="input-group">
+                        <select id="inputState" class="form-select">
+                            <option value="" disabled selected>Search for tours and destinations</option>
+                            <optgroup label="Australia">
+                                <option>Brisbane</option>
+                                <option>Byron Bay</option>
+                                <option>Cairns & Surrounds </option>
+                            </optgroup>
+                            <optgroup label="New Zealand">
+                                <option>North Island</option>
+                                <option>Queenstown & Fiordland</option>
+                                <option>South Island </option>
+                            </optgroup>
+                            <optgroup label="South East Asia">
+                                <option>Cambodia</option>
+                                <option>Laos</option>
+                                <option>Thailand</option>
+                            </optgroup>
+                        </select>
+                        <div class="input-group-text">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                              </svg>
+                            &nbsp; search
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ** Latest Deals Block ** -->
+    <section class="latest-deals custom-space-bw-blocks">
+        <div class="container">
+            <header class="text-center mb-5">
+                <p class="custom-lt-sub-title mb-0">What’s new</p>
+                <h2 class="custom-lt-title">Latest Deals</h2>
+            </header>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card custom-lt-card">
+                        <div class="card-header p-0">
+                            <a href="" class="thubnail-pic">
+                                <img class="img-fluid"
+                                    src="https://happytravels.com.au/wp-content/uploads/2021/02/Port-Douglas-beach.jpg"
+                                    alt="" srcset="">
+                            </a>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="lt-text">
+                                <div class="text-meta">
+                                    <span> Hot Deal </span>
+                                </div>
+                                <div class="text-tile">
+                                    <a href="">21 Day East Coast Adventure Package</a>
+                                </div>
+                                <div class="text-location">
+                                    <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>
+                                    <span> Sydney, Byron, or Cairns</span>
+                                </div>
+                                <div class="text-bottom">
+                                    <div class="info-price">
+                                        <label> From (AUD)</label>
+                                        <span class="new-price">$2,799.00</span>
+                                        <span class="old-price">$3,299.00</span>
+                                    </div>
+                                    <a href="" class="explore-btn">Explore <i class="fa fa-long-arrow-right"
+                                            aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card custom-lt-card">
+                        <div class="card-header p-0">
+                            <a href="" class="thubnail-pic">
+                                <img class="img-fluid"
+                                    src="https://happytravels.com.au/wp-content/uploads/2022/12/2Day2NightEntice_08.jpg"
+                                    alt="" srcset="">
+                            </a>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="lt-text">
+                                <div class="text-meta">
+                                    <span> Create your Own </span>
+                                </div>
+                                <div class="text-tile">
+                                    <a href="">
+                                        Build Your Own East Coast Package </a>
+                                </div>
+                                <div class="text-location">
+                                    <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>
+                                    <span> Start & Finish Anywhere You Like</span>
+                                </div>
+                                <div class="text-bottom">
+                                    <div class="info-price">
+                                        <label> From (AUD)</label>
+                                        <span class="new-price">$99.00</span>
+                                        <span class="old-price">$3,299.00</span>
+                                    </div>
+                                    <a href="" class="explore-btn">Explore <i class="fa fa-long-arrow-right"
+                                            aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card custom-lt-card">
+                        <div class="card-header p-0">
+                            <a href="" class="thubnail-pic">
+                                <img class="img-fluid"
+                                    src="https://happytravels.com.au/wp-content/uploads/2024/07/NorthboundTile.png"
+                                    alt="" srcset="">
+                            </a>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="lt-text">
+                                <div class="text-meta">
+                                    <span> Hot Deal </span>
+                                </div>
+                                <div class="text-tile">
+                                    <a href="">
+                                        Travel Buddies 32 Day Sydney to Cairns Group Tour </a>
+                                </div>
+                                <div class="text-location">
+                                    <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>
+                                    <span> Sydney to Cairns</span>
+                                </div>
+                                <div class="text-bottom">
+                                    <div class="info-price">
+                                        <label> From (AUD)</label>
+                                        <span class="new-price">$4,299.00</span>
+                                        <span class="old-price">$3,299.00</span>
+                                    </div>
+                                    <a href="" class="explore-btn">Explore <i class="fa fa-long-arrow-right"
+                                            aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <button class="btn bg-custom-primary-dark text-white" style="font-weight: 500;">
+                    <span> Explore Now &nbsp; </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- ** Serach for camparvan or car Block ** -->
+    <section class="serach-for-vechical custom-space-bw-blocks">
+        <div class="container">
+            <header class="text-center pb-5">
+                <p class="custom-lt-sub-title mb-0">What’s it for</p>
+                <h2 class="custom-lt-title">Campervans &amp; Cars</h2>
+            </header>
+            <div class="row g-5 serach-for-vechical-content">
+                <div class="col-md text-center">
+                    <img src="./assets/images/car-insurance.png" width="48px" />
+                    <h3> Compare rental companies</h3>
+                    <p>Compare rental companies on pricing, options, insurance, locations, reviews.</p>
+                </div>
+                <div class="col-md text-center">
+                    <span class="text-cus-primary">
+                        <svg width="48" x="0px" y="0px" viewBox="0 0 24 24">
+                            <g transform="translate(0, 0)" fill="none">
+                                <rect x="1" y="1" fill="none" stroke="currentColor"
+                                    vector-effect="non-scaling-stroke" stroke-linecap="square"
+                                    stroke-miterlimit="10" width="22" height="22" stroke-linejoin="miter"></rect>
+                                <line data-color="color-2" fill="none" stroke="currentColor"
+                                    vector-effect="non-scaling-stroke" stroke-linecap="square"
+                                    stroke-miterlimit="10" x1="16" y1="8" x2="20" y2="8" stroke-linejoin="miter">
+                                </line>
+                                <line data-color="color-2" fill="none" stroke="currentColor"
+                                    vector-effect="non-scaling-stroke" stroke-linecap="square"
+                                    stroke-miterlimit="10" x1="4" y1="8" x2="6" y2="8" stroke-linejoin="miter">
+                                </line>
+                                <line data-color="color-2" fill="none" stroke="currentColor"
+                                    vector-effect="non-scaling-stroke" stroke-linecap="square"
+                                    stroke-miterlimit="10" x1="8" y1="16" x2="4" y2="16" stroke-linejoin="miter">
+                                </line>
+                                <line data-color="color-2" fill="none" stroke="currentColor"
+                                    vector-effect="non-scaling-stroke" stroke-linecap="square"
+                                    stroke-miterlimit="10" x1="20" y1="16" x2="18" y2="16" stroke-linejoin="miter">
+                                </line>
+                                <circle data-color="color-2" fill="none" stroke="currentColor"
+                                    vector-effect="non-scaling-stroke" stroke-linecap="square"
+                                    stroke-miterlimit="10" cx="9" cy="8" r="3" stroke-linejoin="miter"></circle>
+                                <circle data-color="color-2" fill="none" stroke="currentColor"
+                                    vector-effect="non-scaling-stroke" stroke-linecap="square"
+                                    stroke-miterlimit="10" cx="15" cy="16" r="3" stroke-linejoin="miter"></circle>
+                            </g>
+                        </svg>
+                    </span>
+                    <h3>100% free booking service</h3>
+                    <p>We customise and curate your trip as per your travel preferences. Just let us know!</p>
+                </div>
+                <div class="col-md text-center">
+                    <span class="text-cus-primary">
+                        <svg width="48" x="0px" y="0px" viewBox="0 0 24 24">
+                            <g transform="translate(0, 0)" fill="none">
+                                <path fill="none" stroke="currentColor" vector-effect="non-scaling-stroke"
+                                    stroke-linecap="square" stroke-miterlimit="10"
+                                    d="M6,3H3C1.895,3,1,3.895,1,5 v0c0,1.105,0.895,2,2,2" stroke-linejoin="miter">
+                                </path>
+                                <polyline data-color="color-2" fill="none" stroke="currentColor"
+                                    vector-effect="non-scaling-stroke" stroke-linecap="square"
+                                    stroke-miterlimit="10" points=" 6,7 6,1 20,1 20,7 " stroke-linejoin="miter">
+                                </polyline>
+                                <path fill="none" stroke="currentColor" vector-effect="non-scaling-stroke"
+                                    stroke-linecap="square" stroke-miterlimit="10"
+                                    d="M23,7H3 C1.895,7,1,6.105,1,5v15c0,1.657,1.343,3,3,3h19V7z"
+                                    stroke-linejoin="miter"></path>
+                                <circle fill="none" stroke="currentColor" vector-effect="non-scaling-stroke"
+                                    stroke-linecap="square" stroke-miterlimit="10" cx="17" cy="15" r="2"
+                                    stroke-linejoin="miter"></circle>
+                            </g>
+                        </svg>
+                    </span>
+                    <h3>Best prices guaranteed</h3>
+                    <p>We provide 100% online payment support, so you don't have to worry about paying in cash.</p>
+                </div>
+                <div class="col-md text-center">
+                    <span class="text-cus-primary">
+                        <svg width="48" x="0px" y="0px" viewBox="0 0 24 24">
+                            <g transform="translate(0, 0)" fill="none">
+                                <path fill="none" stroke="currentColor" vector-effect="non-scaling-stroke"
+                                    stroke-linecap="square" stroke-miterlimit="10"
+                                    d="M17,15l-3,3l-8-8l3-3L4,2 L1,5c0,9.941,8.059,18,18,18l3-3L17,15z"
+                                    stroke-linejoin="miter"></path>
+                                <path data-color="color-2" fill="none" stroke="currentColor"
+                                    vector-effect="non-scaling-stroke" stroke-linecap="square"
+                                    stroke-miterlimit="10" d="M14,1 c4.971,0,9,4.029,9,9" stroke-linejoin="miter">
+                                </path>
+                                <path data-color="color-2" fill="none" stroke="currentColor"
+                                    vector-effect="non-scaling-stroke" stroke-linecap="square"
+                                    stroke-miterlimit="10" d="M14,5 c2.761,0,5,2.239,5,5" stroke-linejoin="miter">
+                                </path>
+                            </g>
+                        </svg>
+                    </span>
+                    <h3>24/7 roadside assistance</h3>
+                    <p>
+                        Leave all your travel worries to us, as we are here to help you around the clock.
+                    </p>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="py-5">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="campervans-tab" data-bs-toggle="tab"
+                                    data-bs-target="#campervans " type="button" role="tab" aria-controls="car"
+                                    aria-selected="true">
+                                    <!-- <img src="https://edge.ixigo.com/st/vimaan/_next/static/media/flight.f515b25a.svg"
+                                        alt="" srcset="" width="60px" height="60px"> -->
+                                    <img src="./assets/images/campervan.png" alt="" srcset="" width="60px" height="60px">
+                                    Campervans
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="cars-tab" data-bs-toggle="tab" data-bs-target="#cars"
+                                    type="button" role="tab" aria-controls="car" aria-selected="false">
+                                    <img src="./assets/images/car-rent.png" alt="" srcset="" width="60px" height="60px">
+                                    Car Hire
+                                </button>
+                            </li>
+                        </ul>
+                        <div class="tab-content bg-white" id="myTabContent">
+                            <div class="tab-pane fade show active" id="campervans" role="tabpanel"
+                                aria-labelledby="campervans-tab">
+                                <form class="row g-4">
+                                    <div class="col-md-3">
+                                        <!-- <label class="visually-hidden" for="autoSizingInputGroup">Pickup From</label> -->
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                                                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                                </svg>
+                                            </div>
+                                            <select id="inputState" class="form-select">
+                                                <option selected>Pick up location</option>
+                                                <option>...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <!-- <label class="visually-hidden" for="autoSizingInputGroup">Date To</label> -->
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                                                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                                </svg>
+                                            </div>
+                                            <select id="inputState" class="form-select">
+                                                <option selected>Same as pick up</option>
+                                                <option>...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="visually-hidden" for="autoSizingInputGroup">Date From</label>
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                                                </svg>
+                                            </div>
+                                            <input id="startDate" class="form-control" type="date" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="visually-hidden" for="autoSizingInputGroup">Date To</label>
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                                                </svg>
+                                            </div>
+                                            <input id="startDate" class="form-control" type="date" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <!-- <label class="visually-hidden" for="autoSizingInputGroup">Pickup From</label> -->
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                                                  </svg>
+                                            </div>
+                                            <select id="inputState" class="form-select">
+                                                <option selected>Adult</option>
+                                                <option>...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <!-- <label class="visually-hidden" for="autoSizingInputGroup">Pickup From</label> -->
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-diagram-2" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 5 7h2.5V6A1.5 1.5 0 0 1 6 4.5zM8.5 5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5zM3 11.5A1.5 1.5 0 0 1 4.5 10h1A1.5 1.5 0 0 1 7 11.5v1A1.5 1.5 0 0 1 5.5 14h-1A1.5 1.5 0 0 1 3 12.5zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm4.5.5a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1A1.5 1.5 0 0 1 9 12.5zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"/>
+                                                </svg>
+                                            </div>
+                                            <select id="inputState" class="form-select">
+                                                <option selected>Kids</option>
+                                                <option>...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <!-- <label class="visually-hidden" for="autoSizingInputGroup">Pickup From</label> -->
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-activity" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2"/>
+                                                </svg>
+                                            </div>
+                                            <select id="inputState" class="form-select">
+                                                <option selected>Activities</option>
+                                                <option>...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                      <button type="submit" class="btn btn-primary bg-custom-primary-dark">Request to Quote</button>
+                                      <button type="submit" class="btn btn-primary bg-custom-primary-dark">Search</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="cars" role="tabpanel" aria-labelledby="cars-tab">
+                                <form class="row g-4">
+                                    <div class="col-md-3">
+                                        <!-- <label class="visually-hidden" for="autoSizingInputGroup">Pickup From</label> -->
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                                                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                                </svg>
+                                            </div>
+                                            <select id="inputState" class="form-select">
+                                                <option selected>Pick up location</option>
+                                                <option>...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <!-- <label class="visually-hidden" for="autoSizingInputGroup">Date To</label> -->
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                                                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                                </svg>
+                                            </div>
+                                            <select id="inputState" class="form-select">
+                                                <option selected>Same as pick up</option>
+                                                <option>...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="visually-hidden" for="autoSizingInputGroup">Date From</label>
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                                                </svg>
+                                            </div>
+                                            <input id="startDate" class="form-control" type="date" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="visually-hidden" for="autoSizingInputGroup">Date To</label>
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                                                </svg>
+                                            </div>
+                                            <input id="startDate" class="form-control" type="date" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <!-- <label class="visually-hidden" for="autoSizingInputGroup">Pickup From</label> -->
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                                                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                                </svg>
+                                            </div>
+                                            <select id="inputState" class="form-select">
+                                                <option selected>Adult</option>
+                                                <option>...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <!-- <label class="visually-hidden" for="autoSizingInputGroup">Pickup From</label> -->
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                                                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                                </svg>
+                                            </div>
+                                            <select id="inputState" class="form-select">
+                                                <option selected>Kids</option>
+                                                <option>...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <!-- <label class="visually-hidden" for="autoSizingInputGroup">Pickup From</label> -->
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-activity" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2"/>
+                                                </svg>
+                                            </div>
+                                            <select id="inputState" class="form-select">
+                                                <option selected>Activities</option>
+                                                <option>...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                      <button type="submit" class="btn btn-primary bg-custom-primary-dark">Search</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ** Experience start with happy tavel Block ** -->
+    <section class="travel-starts py-5 custom-space-bw-blocks">
+        <div class="ts-bg-overlay"></div>
+        <div class="container">
+            <header class="position-relative">
+                <h2 class="custom-lt-title pb-3">Your Experience Starts Here</h2>
+                <p class="pb-2">Happy Travels is Australia's largest independent adventure travel agency,
+                    specializing in travel across Australia, New Zealand, Fiji, Bali, and beyond. Our experienced
+                    agents offer a range of services, including tour packages, campervan rentals, bus passes, and
+                    travel deals. With dedicated customer support, we're with you every step of your journey.</p>
+                <a tole="button" data-bs-toggle="modal" data-bs-target="#videoModal"
+                    onclick="javascript:player.api('pause')">
+                    <img src="./assets/images/play-button (1).png" alt="" srcset="" style="width: 60px;">
+                </a>
+                <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <iframe id="vimeoVideo"
+                                    src="https://player.vimeo.com/video/504223919?dnt=1&app_id=122963" width="100%"
+                                    height="450" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+        </div>
+    </section>
+    <!-- ** Popular Destination Block ** -->
+    <section class="popular-destiny custom-space-bw-blocks">
+        <div class="container">
+            <header class="text-center mb-5">
+                <p class="custom-lt-sub-title mb-0">Worth a visit</p>
+                <h2 class="custom-lt-title">Popular Destinations</h2>
+            </header>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="tour-category">
+                        <div class="tour-category-item-wrap">
+                            <div class="tour-category-item-thubnail">
+                                <img src="https://happytravels.com.au/wp-content/uploads/2022/12/CairnsSurrounds_003UNSPLASH.jpg"
+                                    class="img-fluid" alt="">
+                            </div>
+                            <div class="tour-category-count">5 tours</div>
+                            <div class="tour-category-overlay"></div>
+                            <div class="tour-category-head">
+                                <div class="tour-category-head-display">
+                                    <h3 class="tour-category-title">Cairns</h3>
+                                </div>
+                                <div class="tour-category-head-animate">
+                                    <div class="tour-category-description">If you care about the planet, then you
+                                        care about this place. In Cairns and surrounds you’ll find the oldest living
+                                        rainforest in the world, more biodiversity than scientists can study,
+                                    </div>
+                                    <a class="tour-category-head-link"
+                                        href="#/">View
+                                        all tours
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="tour-category">
+                        <div class="tour-category-item-wrap">
+                            <div class="tour-category-item-thubnail">
+                                <img src="https://happytravels.com.au/wp-content/uploads/2020/11/FraserIsland_005UNSPLASH.jpg"
+                                    class="img-fluid" alt="">
+                            </div>
+                            <div class="tour-category-count">5 tours</div>
+                            <div class="tour-category-overlay"></div>
+                            <div class="tour-category-head">
+                                <div class="tour-category-head-display">
+                                    <h3 class="tour-category-title">K'gari (Fraser Island)</h3>
+                                </div>
+                                <div class="tour-category-head-animate">
+                                    <div class="tour-category-description">K’gari, mainly known as Fraser Island and
+                                        meaning ‘paradise,’ is the largest sand island in the world. It covers an
+                                        area of 184,000...
+                                    </div>
+                                    <a class="tour-category-head-link"
+                                        href="#/">View
+                                        all tours
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="tour-category">
+                        <div class="tour-category-item-wrap">
+                            <div class="tour-category-item-thubnail">
+                                <img src="https://happytravels.com.au/wp-content/uploads/2022/12/Whitsundays_001UNSPLASH.jpg"
+                                    class="img-fluid" alt="">
+                            </div>
+                            <div class="tour-category-count">5 tours</div>
+                            <div class="tour-category-overlay"></div>
+                            <div class="tour-category-head">
+                                <div class="tour-category-head-display">
+                                    <h3 class="tour-category-title"> Whitsunday
+                                    </h3>
+                                </div>
+                                <div class="tour-category-head-animate">
+                                    <div class="tour-category-description">Far far away, behind the word mountains,
+                                        far...
+                                    </div>
+                                    <a class="tour-category-head-link"
+                                        href="#/">View
+                                        all tours
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="tour-category">
+                        <div class="tour-category-item-wrap">
+                            <div class="tour-category-item-thubnail">
+                                <img src="https://happytravels.com.au/wp-content/uploads/2022/12/DarwinTopEnd_005UNSPLASH.jpg"
+                                    class="img-fluid" alt="">
+                            </div>
+                            <div class="tour-category-count">5 tours</div>
+                            <div class="tour-category-overlay"></div>
+                            <div class="tour-category-head">
+                                <div class="tour-category-head-display">
+                                    <h3 class="tour-category-title">Darwin & Top End</h3>
+                                </div>
+                                <div class="tour-category-head-animate">
+                                    <div class="tour-category-description">The capital of the Northern Territory
+                                        blends...
+                                    </div>
+                                    <a class="tour-category-head-link"
+                                        href="#/">View
+                                        all tours
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="tour-category">
+                        <div class="tour-category-item-wrap">
+                            <div class="tour-category-item-thubnail">
+                                <img src="https://happytravels.com.au/wp-content/uploads/2023/03/Destination_004-1.jpg"
+                                    class="img-fluid" alt="">
+                            </div>
+                            <div class="tour-category-count">5 tours</div>
+                            <div class="tour-category-overlay"></div>
+                            <div class="tour-category-head">
+                                <div class="tour-category-head-display">
+                                    <h3 class="tour-category-title">Fiji</h3>
+                                </div>
+                                <div class="tour-category-head-animate">
+                                    <div class="tour-category-description">Fiji is absolutely bursting with a
+                                        variety of ...
+                                    </div>
+                                    <a class="tour-category-head-link"
+                                        href="#/">View
+                                        all tours
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col-md-4">
+                    <div class="tour-category">
+                        <div class="tour-category-item-wrap">
+                            <div class="tour-category-item-thubnail">
+                                <img src="https://happytravels.com.au/wp-content/uploads/2023/07/Bali-Lombok-14.png"
+                                    class="img-fluid" alt="">
+                            </div>
+                            <div class="tour-category-count">5 tours</div>
+                            <div class="tour-category-overlay"></div>
+                            <div class="tour-category-head">
+                                <div class="tour-category-head-display">
+                                    <h3 class="tour-category-title">Bali & Lombok</h3>
+                                </div>
+                                <div class="tour-category-head-animate">
+                                    <div class="tour-category-description">Bali and Lombok are neighbouring
+                                        islands...
+                                    </div>
+                                    <a class="tour-category-head-link"
+                                        href="#/">View
+                                        all tours
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ** Build your package  Block ** -->
+    <section class="build-ur-package custom-space-bw-blocks">
+        <div class="container bg-custom-primary custom-rounded-32">
+            <div class="row">
+                <div class="col-md-6 p-5">
+                    <header>
+                        <!-- <p class="custom-lt-sub-title mb-0">Make it memorable</p> -->
+                        <h2 class="custom-lt-title">Build your own adventure.</h2>
+                    </header>
+                    <ul class="accordion" id="accordionExample">
+                        <li class="accordion-item">
+                            <div class="accordion-header" id="headingOne" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <div class="item-number"> 1 </div>
+                                <div class="item-heading">Transforming Lives, One Adventure at a Time</div>
+                            </div>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                Happy Travels specialise in building custom travel experiences at affordable prices and our mission is to change
+                                peoples lives, one adventure at a time. So, if it’s on your bucket list, let us know. We have you covered.
+                            </div>
+                        </li>
+                        <li  class="accordion-item">
+                            <div class="accordion-header" id="headingTwo" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                <div class="item-number"> 2 </div>
+                                <div class="item-heading">Discount Tours in Australia & New Zealand</div>
+                            </div>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                Whether your planning a trip to Australia or New Zealand we can help you get discounts on tours, offer up-to-date travel
+                                advice and help you book the best hostels. We offer discount East Coast Packages or West Coast tours as well as amazing
+                                experiences such as Great Barrier Reef trips, Scuba Diving or Skydiving, Campervans or Car rentals.
+                            </div>
+                        </li>
+                        <li  class="accordion-item">
+                            <div class="accordion-header" id="headingThree" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                <div class="item-number"> 3 </div>
+                                <div class="item-heading">Build Your Trip with Greyhound Passes</div>
+                            </div>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                At Happy Travels you can book discount Greyhound Australia Bus Passes which include a free custom made travel itinerary
+                                for every adventure. You can click the link below to build your very own custom travel package. Our experienced,
+                                adventure travel experts will get back to you with a quote and are on hand to support you on your journey.
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn bg-custom-primary-dark text-white"> Custom package builder </button>
+                </div>
+                <div class="col-md-6">
+                    <div class="bup-box">
+                        <img src="./assets/images/customise-backpackers.png" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- ** Blog Block ** -->
+    <section class="blog custom-space-bw-blocks">
+        <div class="container">
+            <header class="text-center mb-5">
+                <p class="custom-lt-sub-title mb-0"> Our latest travel blogs</p>
+                <h2 class="custom-lt-title">Get Lost</h2>
+            </header>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="blog-itmes">
+                        <div class="row blog-item">
+                            <div class="col-md-4">
+                                <img src="https://happytravels.com.au/wp-content/uploads/2024/07/10-1024x538.png" alt="" class="img-fluid rounded" />
+                            </div>
+                            <div class="col-md-8">
+                                <ul class="list-unstyled d-flex">
+                                    <li>
+                                        <i class="fa fa-calendar fa-fw" style="color: #ea7d1e;"></i>
+                                        <span>July 15, 2024</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-user fa-fw" style="color: #ea7d1e;"></i>
+                                        <span>Abbie Brooks </span>
+                                    </li>
+                                </ul>
+                                <h4>The Top 10 Tours and Activities in Cairns</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-itmes">
+                        <div class="row blog-item">
+                            <div class="col-md-4">
+                                <img src="https://happytravels.com.au/wp-content/uploads/2024/07/east-coast-travel-guide-4-1024x538.png" alt="" class="img-fluid rounded" />
+                            </div>
+                            <div class="col-md-8">
+                                <ul class="list-unstyled d-flex">
+                                    <li>
+                                        <i class="fa fa-calendar fa-fw" style="color: #ea7d1e;"></i>
+                                        <span>July 13, 2024</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-user fa-fw" style="color: #ea7d1e;"></i>
+                                        <span>Abbie Brooks </span>
+                                    </li>
+                                </ul>
+                                <h4>Essential Aussie Packing List: What to Pack to Go Down Under</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-itmes">
+                        <div class="row blog-item">
+                            <div class="col-md-4">
+                                <img src="https://happytravels.com.au/wp-content/uploads/2024/07/east-coast-travel-guide-9-1024x538.png" alt="" class="img-fluid rounded" />
+                            </div>
+                            <div class="col-md-8">
+                                <ul class="list-unstyled d-flex">
+                                    <li>
+                                        <i class="fa fa-calendar fa-fw" style="color: #ea7d1e;"></i>
+                                        <span>July 18, 2024</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-user fa-fw" style="color: #ea7d1e;"></i>
+                                        <span>Toby Paige</span>
+                                    </li>
+                                </ul>
+                                <h4>Ultimate 2024 East Coast Travel Guide</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-8">
+                    <div class="blog-media bg-custom-primary-light">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="blog-item-bg-img"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="blog-media-content">
+                                    <ul class="list-unstyled d-flex gap-4">
+                                        <li>
+                                            <i class="fa fa-calendar fa-fw" style="color: #ea7d1e;"></i>
+                                            <span>July 13, 2024</span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-user fa-fw" style="color: #ea7d1e;"></i>
+                                            <span>Admin</span>
+                                        </li>
+                                    </ul>
+                                    <h4>Greyhound Bus Travel in Australia: Everything You Need To Know
+                                    </h4>
+                                    <p>Looking for the best ways to explore Australia without breaking the budget? Say hello to the <a href="" class="underline">Greyhound</a> Bus, a
+                                        cost-effective, social, and easy way to travel the country. From surfing waves in the Gold Coast to exploring the
+                                        country’s rugged outback, you can easily hop from one epic Aussie destination to the next with Greyhound, so here’s
+                                        everything you need to know before taking your first bus!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     </section>
+    <!-- Footer Block -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container text-center text-md-start">
+            <div class="row text-center text-md-start">
+
+                <!-- Company Info -->
+                <div class="col-md-4 col-md-4 col-xl-4 mt-3">
+                    <!-- <h5 class="text-uppercase mb-4 font-weight-bold"></h5> -->
+                    <img src="./assets/images/HT-Logo-Angle-Orange.webp" alt="" width="200px" class="mb-4">
+                    <p>
+                        Happy Travels is Australia’s leading independent adventure travel specialist. We work with a
+                        wide range of tour companies to bring you the best deals possible. </p>
+                    <!-- Social Media Links -->
+                <div class="col-md-12 mt-3 text-center text-md-start">
+                    <h5 class="text-uppercase mb-4 font-weight-bold">Follow Us</h5>
+                    <div class="d-flex justify-content-center justify-content-md-start">
+                        <a href="#" class="text-white me-4"><i class="fa fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-4"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="text-white me-4"><i class="fa fa-youtube"></i></a>
+                        <a href="#" class="text-white me-4"><i class="fa fa-linkedin-in"></i></a>
+                    </div>
+                </div>    
+                </div>
+
+                <!-- Useful Links -->
+                <div class="col-md-2 col-md-2 col-xl-2 mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold">About Us</h5>
+                    <p><a href="#" class="text-white text-decoration-none">Travel Blog</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Contact Us</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Work For Us</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Collaborate With Us</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Frequently Asked Questions</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Cancellations & Refund Requests</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Terms & Conditions</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Privacy Policy</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Travel Insurance</a></p>
+                </div>
+
+                <!-- Products -->
+                <div class="col-md-2 col-md-2 col-xl-2 mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold">Top Activities</h5>
+                    <p><a href="#" class="text-white text-decoration-none"> Campervan & Car Hire </a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Greyhound Bus Passes </a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Fraser Island 4×4 Tours </a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Whitsundays Tours </a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Great Barrier Reef</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Cairns & Surrounds</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Skydiving</a></p>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-md-2 col-md-2 col-xl-2 mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold">Our Travel Stores
+                    </h5>
+                    <p><a href="#" class="text-white text-decoration-none"> Happy Travels Melbourne</a></p>
+                    <p><a href="#" class="text-white text-decoration-none"> Happy Travels Sydney</a></p>
+                    <p><a href="#" class="text-white text-decoration-none"> Happy Travels Kings Cross</a></p>
+                    <p><a href="#" class="text-white text-decoration-none"> Happy Travels Byron Bay</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Happy Travels Airlie Beach</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Happy Travels Cairns</a></p>
+                </div>
+                <!-- Contact Info -->
+                <div class="col-md-2 col-md-2 col-xl-2 mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold">Our Travel Stores
+                    </h5>
+                    <p><a href="#" class="text-white text-decoration-none"> Build Your Own East Coast</a></p>
+                    <p><a href="#" class="text-white text-decoration-none"> Build Your Own NZ Package</a></p>
+                    <p><a href="#" class="text-white text-decoration-none"> Discounted Package Deals</a></p>
+                    <p><a href="#" class="text-white text-decoration-none"> Schedule a free Trip planning Session</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Rent a Campervan</a></p>
+                </div>
+                
+            </div>
+
+            <!-- Copyright Section -->
+            <div class="row mt-3">
+                <div class="col-md-12 text-center">
+                    <p class="text-white">&copy; 2024 Happy Travels. All rights reserved. &nbsp;|&nbsp; Privacy Policy &nbsp;|&nbsp; Terms of Use. </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Script Block -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/zoomslider.min.js"></script>
+    <script>
+        //Video Popup close automatically or Listen for the modal hide event
+        document.getElementById('videoModal').addEventListener('hidden.bs.modal', function () {
+            // Get the iframe and pause the video
+            const iframe = document.getElementById('vimeoVideo');
+            const iframeSrc = iframe.src;
+            iframe.src = ''; 
+            iframe.src = iframeSrc;
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+              const navbarCollapse = document.getElementById("navbarContent");
+        
+              navbarCollapse.addEventListener("shown.bs.collapse", function () {
+                // Add class to body when navbar is expanded
+                document.body.classList.add("navbar-expanded");
+              });
+        
+              navbarCollapse.addEventListener("hidden.bs.collapse", function () {
+                // Remove class from body when navbar is collapsed
+                document.body.classList.remove("navbar-expanded");
+              });
+            });
+
+            $(document).ready(function () {
+            let slides = $('.zoom-slide');
+            let currentSlide = 0;
+
+            function showNextSlide() {
+                // Hide all slides
+                slides.removeClass('show');
+
+                // Show the next slide
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides.eq(currentSlide).addClass('show');
+            }
+
+            // Initialize the slider
+            slides.eq(currentSlide).addClass('show');
+
+            // Set interval to change slides every 5 seconds
+            setInterval(showNextSlide, 5000);
+        });
+    </script>
+</body>
+</html>
